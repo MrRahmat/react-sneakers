@@ -2,6 +2,33 @@
 function App() {
   return (
     <div className="wrapper">
+      <div className="cartOverlay">
+        <div className="cart">
+          <h2>Корзина</h2>
+          <div className="cartItem">
+            <div style={{backgroundImage: 'url(/img/sneakers/1.jpg)'}}className="cartItemImg">
+
+            </div>
+            <div className="cartItem__text">
+              <p>Мужские кроссовки Nike Blazer Mid Suede</p>
+              <b>12 999 руб.</b>
+            </div>
+            <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" />
+          </div>
+          <div className="cartItem">
+            <div style={{backgroundImage: 'url(/img/sneakers/2.jpg)'}}className="cartItemImg">
+
+            </div>
+            <div className="cartItem__text">
+              <p>Мужские кроссовки Nike Blazer Mid Suede</p>
+              <b>12 999 руб.</b>
+            </div>
+            <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" />
+          </div>
+        </div>
+      </div>
+
+
       <header>
         <div className="headerLeft">
           <img className="headerLogo" src="/img/logo.png" alt="Логотип"/>
@@ -22,9 +49,19 @@ function App() {
           </ul>
       </header>
       <div className="content">
-        <h1>Все кроссовки</h1>
+        <div className="contentHeader">
+          <h1>Все кроссовки</h1>
+          <div className="searchBlock">
+            <img src="/img/search.svg" alt="Поиск"/>
+            <input placeholder="Поиск..."/>
+          </div>
+        </div>
+  
         <div className="sneakers">
           <div className="card">
+            <div className="cardFavourite">
+              <img src="/img/heart-unliked.svg" alt="Unlike"/> 
+            </div>
             <img width={133} height={112} src="/img/sneakers/1.jpg" alt="Sneakers"/>
             <h5>Мужские кроссовки Nike Blazer Mid Suede</h5>
             <div className="cardBottom">

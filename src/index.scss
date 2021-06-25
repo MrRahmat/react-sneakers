@@ -6,6 +6,10 @@ body {
   background-color: #e7f6ff;
 }
 
+* {
+  font-family: 'Inter', system-ui;
+}
+
 .wrapper {
   width: 90%;
   margin: 50px auto;
@@ -80,8 +84,29 @@ header {
 .content {
   padding: 40px;
 
-  h1 {
-    margin: 0 0 40px 0;
+  .contentHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    h1{
+      margin: 0;
+    }
+
+    .searchBlock{
+      display: flex;
+      border: 1px solid #f2f2f2;
+      border-radius: 10px;
+      padding: 0 15px;
+      
+      input{
+        border: 0;
+        padding: 13px;
+        font-size: 16px;
+        width: 200px;
+      }
+    }
   }
 
   .sneakers{
@@ -97,6 +122,17 @@ header {
   padding: 30px;
   width: 220px;
   margin-bottom: 40px;
+  transition: box-shadow .2s ease-in-out, transform box-shadow .2s ease-in-out;
+
+  &:hover{
+    box-shadow: 0 14px 35px rgba(0,0,0,0.06);
+    transform: translateY(-5px);
+  }
+
+  .cardFavourite{
+    position: absolute;
+    cursor: pointer;
+  }
 
   h5{
     font-weight: 400;
@@ -134,4 +170,71 @@ header {
 }
 
   
+}
+.cartOverlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.cart{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 420px;
+  background: #fff;
+  box-shadow: -10px 4px 24px rgba(0,0,0,0.1);
+  padding: 30px;
+
+  h2{
+    margin: 0 0 30px 0;
+  }
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .cartItemImg {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 -3px;
+    margin-right: 20px;
+  }
+
+  .cartItem__text{
+    flex: 1;
+    margin-right: 20px;
+    
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    b{
+      font-size: 14px;
+    }
+  }
+
+  .cartItemBtn {
+    margin: 0;
+    opacity: .5;
+    cursor: pointer;
+    transition: opacity .2s ease-in-out;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
 }
