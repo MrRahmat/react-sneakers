@@ -116,61 +116,7 @@ header {
   }
 }
 
-.card{
-  border: 1px solid #f2f2f2;
-  border-radius: 40px;
-  padding: 30px;
-  width: 220px;
-  margin-bottom: 40px;
-  transition: box-shadow .2s ease-in-out, transform box-shadow .2s ease-in-out;
 
-  &:hover{
-    box-shadow: 0 14px 35px rgba(0,0,0,0.06);
-    transform: translateY(-5px);
-  }
-
-  .cardFavourite{
-    position: absolute;
-    cursor: pointer;
-  }
-
-  h5{
-    font-weight: 400;
-    font-size: 14px;
-  }
-
-  .cardBottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    p, b{
-      margin: 0;
-    }
-
-    p{
-      opacity: .5;
-      font-size: 13px;
-      text-transform: uppercase;
-    }
-
-    b{
-      font-size: 14px;
-    }
-
-    .cardBtn{
-      background: #fff;
-      border: 1px solid #f1f1f1;
-      box-sizing: border-box;
-      border-radius: 8px;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-    }
-}
-
-  
-}
 .cartOverlay{
   position: absolute;
   left: 0;
