@@ -1,29 +1,20 @@
-function Cart(props) {
+function Cart({onClose, items=[] }) {
     return(
         <div className="cartOverlay">
             <div className="cart">
-                <h2>Корзина <img onClick={props.onClickCart} className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" /></h2>
+                <h2>Корзина <img onClick={onClose} className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" /></h2>
                 <div className="cartItems">
-                    <div className="cartItem">
-                    <div style={{backgroundImage: 'url(/img/sneakers/1.jpg)'}}className="cartItemImg">
-
-                    </div>
-                    <div className="cartItem__text">
-                        <p>Мужские кроссовки Nike Blazer Mid Suede</p>
-                        <b>12 999 руб.</b>
-                    </div>
-                    <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" />
-                    </div>
-                    <div className="cartItem">
-                    <div style={{backgroundImage: 'url(/img/sneakers/2.jpg)'}}className="cartItemImg">
-
-                    </div>
-                    <div className="cartItem__text">
-                        <p>Мужские кроссовки Nike Blazer Mid Suede</p>
-                        <b>12 999 руб.</b>
-                    </div>
-                    <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" />
-                    </div>
+                    {items.map((obj) => (
+                        <div className="cartItem">
+                            <div style={{backgroundImage: `url(${obj.imageUrl})`}}className="cartItemImg">
+                            </div>
+                            <div className="cartItem__text">
+                                <p>{obj.title}</p>
+                                <b>{obj.price} руб.</b>
+                            </div>
+                            <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" />
+                        </div>
+                    ))}
                 </div>
                 <div className="cartBottom">
                     <ul>

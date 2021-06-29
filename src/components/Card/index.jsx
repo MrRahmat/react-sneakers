@@ -1,9 +1,10 @@
 import React from "react";
 import styles from './Card.module.scss';
 
-function Card(props) {
+function Card({title, price, imgUrl, onPlus}) {
   const [isAdded, setIsAdded] = React.useState(false);
   const onAddCart = () => {
+    onPlus({title, price, imgUrl});
     setIsAdded(!isAdded);
   }
 
@@ -17,12 +18,12 @@ function Card(props) {
             <div className={styles.cardFavourite}>
               <img onClick={onLike} src={isLiked ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="Unlike"/> 
             </div>
-            <img width={133} height={112} src={props.imgUrl} alt="Sneakers"/>
-            <h5>{props.title}</h5>
+            <img width={133} height={112} src={imgUrl} alt="Sneakers"/>
+            <h5>{title}</h5>
             <div className={styles.cardBottom}>
               <div>
                 <p>Цена:</p>
-                <b>{props.price} руб.</b>
+                <b>{price} руб.</b>
               </div>
               <img onClick={onAddCart} style={{cursor: "pointer"}} src={isAdded ? "img/btn-checked.svg" : "/img/btn-plus.svg"} alt="+"/>
               
