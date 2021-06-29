@@ -1,6 +1,7 @@
 import Card from './components/Card';
 import Header from './components/Header';
 import Cart from './components/Cart';
+import React from 'react';
  
 const arr = [
   {
@@ -26,11 +27,13 @@ const arr = [
 ];
 
 function App() {
+  const [cartOpened, setCartOpened] = React.useState(false);
+
   return (
     <div className="wrapper">
-      <Cart arr/>
+      {cartOpened ? <Cart onClickCart={() => {setCartOpened(false)}}/> : null}
 
-      <Header/>
+      <Header onClickCart={() => setCartOpened(true)}/>
       <div className="content">
         <div className="contentHeader">
           <h1>Все кроссовки</h1>
@@ -46,7 +49,6 @@ function App() {
             title={obj.title}
             price={obj.price}
             imgUrl={obj.imgUrl}
-            onClick={() => console.log(obj)}
             />
           ))}
         </div>

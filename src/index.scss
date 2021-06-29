@@ -37,50 +37,6 @@ body {
   }
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-
-  border-bottom: 1px solid #eaeaea;
-
-  .headerLeft {
-    display: flex;
-    align-items: center;
-    
-    .headerLogo {
-      width: 80px;
-      height: 80px;
-      margin-right: 24px;
-    }
-
-    h3, p {
-      margin: 0;
-    }
-
-    h3 {
-      text-transform: uppercase;
-    }
-
-    p {
-      opacity: .5;
-    }
-  }
-
-  .headerRight {
-    display: flex;
-
-    li {
-      margin-right: 30px;
-    }
-
-    span{
-      margin-left: 8px;
-    }
-  }
-}
-
 .content {
   padding: 40px;
 

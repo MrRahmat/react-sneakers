@@ -1,8 +1,8 @@
-function Cart(params) {
+function Cart(props) {
     return(
-        <div style={{display: 'none'}} className="cartOverlay">
+        <div className="cartOverlay">
             <div className="cart">
-                <h2>Корзина <img className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" /></h2>
+                <h2>Корзина <img onClick={props.onClickCart} className="cartItemBtn" src="/img/btn-remove.svg" alt="Remove" /></h2>
                 <div className="cartItems">
                     <div className="cartItem">
                     <div style={{backgroundImage: 'url(/img/sneakers/1.jpg)'}}className="cartItemImg">
