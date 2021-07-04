@@ -6,11 +6,10 @@ import React from 'react';
 function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState();
   const [cartOpened, setCartOpened] = React.useState(false);
 
-  const onAddToCard = ((obj) => {
-    setCartItems(prev => [...prev, obj]);
-  });
+  
 
   //Подгрузка данных с бэкенда(mockAPI)
   React.useEffect(() => {
@@ -23,6 +22,14 @@ function App() {
     });
   }, []);
 
+  const onAddToCard = ((obj) => {
+      setCartItems(prev => [...prev, obj]);
+  });
+
+  const onChangeSearchInput = (event) => {
+    setSearchValue(event.target.value);
+  }
+
   return (
     <div className="wrapper">
       {cartOpened && <Cart items={cartItems} onClose={() => {setCartOpened(false)}}/>}
@@ -30,16 +37,17 @@ function App() {
       <Header onClickCart={() => setCartOpened(true)}/>
       <div className="content">
         <div className="contentHeader">
-          <h1>Все кроссовки</h1>
+          <h1>{searchValue ? `Поиск по запросу: "${searchValue}"` : `Все кроссовки`}</h1>
           <div className="searchBlock">
             <img src="/img/search.svg" alt="Поиск"/>
-            <input placeholder="Поиск..."/>
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Поиск..."/>
           </div>
         </div>
   
         <div className="sneakers">
-          {items.map((obj) => (
+          {items.filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase())).map((obj, index) => (
             <Card
+            key={obj + index}
             title={obj.title}
             price={obj.price}
             imgUrl={obj.imgUrl}
